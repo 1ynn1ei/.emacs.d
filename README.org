@@ -56,15 +56,17 @@ The startup message and the bell noise are both inhibitors of concentration, so 
 Referencing [[https://yannesposito.com/posts/0020-cool-looking-org-mode/index.html][This Blog]] for the basis of setting fonts. I tried Dracula at first, but I need something that has both light and dark mode depending on the computer I have setup, and where I am. Solarized seems fine for this?
 #+begin_src emacs-lisp
   (use-package solarized-theme :ensure t)
-  (load-theme 'solarized-light t)
-  (set-face-attribute 'default nil :font "Fira Code" :height 180)
+  (load-theme 'solarized-dark t)
+  (set-face-attribute 'default nil :font "Fira Code")
+  (use-package all-the-icons
+  :if (display-graphic-p))
 #+end_src
 ** Mode-line
 #+begin_src emacs-lisp
   (use-package doom-modeline
   :ensure t
-  :init (doom-modeline-mode 1)
-  :custom ((doom-modeline-height 15)))
+  :init (doom-modeline-mode 1))
+  ;;:custom ((doom-modeline-height 10)))
 #+end_src
 * Org Mode
 Using a hook here so everytime we load an org file, it will set these.
@@ -88,9 +90,7 @@ Using a hook here so everytime we load an org file, it will set these.
     :init
   (add-hook 'rust-mode-hook #'lsp))
 #+end_src
-*** LSP
-
-This is the rust-analyzer part of the implementation.
+** LSP
 #+begin_src emacs-lisp
   (use-package lsp-mode
     :ensure
@@ -98,7 +98,7 @@ This is the rust-analyzer part of the implementation.
     :custom
     ;; what to use when checking on-save. "check" is default, I prefer clippy
     (lsp-rust-analyzer-cargo-watch-command "clippy")
-    (lsp-eldoc-render-all t)
+    (lsp-eldoc-render-all nil)
     (lsp-idle-delay 0.6)
     ;; enable / disable the hints as you prefer:
     (lsp-inlay-hint-enable t)
