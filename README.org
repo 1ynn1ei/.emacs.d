@@ -171,8 +171,8 @@ Using a hook here so everytime we load an org file, it will set these.
   (meow-setup)
   (meow-global-mode 1)
 #+end_src
-#+begin_src emacs-lisp
 * TODO Finish documentation on these
+#+begin_src emacs-lisp
 (use-package swiper)
 (use-package counsel
   :bind (("M-x" . counsel-M-x)
