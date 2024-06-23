@@ -1,4 +1,5 @@
 *~
+.lsp*
 README.el
 elpa
 eln-cache

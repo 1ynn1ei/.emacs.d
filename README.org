@@ -1,4 +1,5 @@
 
+
 #+TITLE: Lynn Lei Configuration
 #+AUTHOR: Lynn Lei
 #+STARTUP: Overview
@@ -65,8 +66,8 @@ Referencing [[https://yannesposito.com/posts/0020-cool-looking-org-mode/index.ht
 #+begin_src emacs-lisp
   (use-package doom-modeline
   :ensure t
-  :init (doom-modeline-mode 1))
-  ;;:custom ((doom-modeline-height 10)))
+  :hook (after-init . doom-modeline-mode)
+  :custom ((doom-modeline-height 10)))
 #+end_src
 * Org Mode
 Using a hook here so everytime we load an org file, it will set these.
@@ -81,6 +82,12 @@ Using a hook here so everytime we load an org file, it will set these.
     :hook (org-mode . ll/org-mode-setup)
     :config
     (setq org-ellipsis " [x]"))
+  (use-package org-bullets
+    :config
+    (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+  (use-package org-novelist
+    :ensure nil
+    :load-path "~/git/org-novelist")
 #+end_src
 * Programming
 ** Rust
