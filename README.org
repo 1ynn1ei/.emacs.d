@@ -56,7 +56,7 @@ The startup message and the bell noise are both inhibitors of concentration, so 
 Referencing [[https://yannesposito.com/posts/0020-cool-looking-org-mode/index.html][This Blog]] for the basis of setting fonts. I tried Dracula at first, but I need something that has both light and dark mode depending on the computer I have setup, and where I am. Solarized seems fine for this?
 #+begin_src emacs-lisp
   (use-package solarized-theme :ensure t)
-  (load-theme 'solarized-dark t)
+  (load-theme 'solarized-selenized-black t)
   (set-face-attribute 'default nil :font "Fira Code")
   (use-package all-the-icons
   :if (display-graphic-p))
