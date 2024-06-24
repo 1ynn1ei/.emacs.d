@@ -1,5 +1,6 @@
 
 
+
 #+TITLE: Lynn Lei Configuration
 #+AUTHOR: Lynn Lei
 #+STARTUP: Overview
@@ -34,7 +35,8 @@ We always want to make sure ~use-package~ is available. We also refresh our pack
     (package-install 'use-package))
 #+end_src
 
-* User Experience / Nuisance Killers
+* User
+Experience / Nuisance Killers
 ** Customize
 First we want anything done with emacs customize to go in some other file, instead of cluttering our ~init.el~
 #+begin_src emacs-lisp
@@ -61,6 +63,7 @@ Referencing [[https://yannesposito.com/posts/0020-cool-looking-org-mode/index.ht
   (set-face-attribute 'default nil :font "Fira Code")
   (use-package all-the-icons
   :if (display-graphic-p))
+  (setq x-underline-at-descent-line t)
 #+end_src
 ** Mode-line
 #+begin_src emacs-lisp
